@@ -41,11 +41,18 @@ Notes on building Rails application:
 - we can use byebug to set a breakpoint within the code for debugging purposes
 - in the view template, use <%= @article.title %> to get the above article variable's title field(remember to include the '=' since that specifies to display as <%%> only evaluates)
 - the index route is used to display a listing of all articles in the table("resources :articles" will create a route the expects a CONTROLLER#ACTION of articles#index by default for the /articles path)
+- can send POST request done to to /articles path to post a new article through a form
+- can look up on action view forms at "guides.rubyonrails.org/form_helpers.html" and use form_with
+- "<%= form_with scope: :article, url: articles_path, local: true do |f| %>" will have the scope of the form take on the article model and path of /articles
+- once clicking submit on the #new action view template form, it will send the request to the #create action
+- in the create action, will need to whitelist fields from the param hash using "params.require(:article).permit(:title, :description)"
 
 - views are in views folder
 - app/assets stores static assets(images, stylesheets)
 - the html.erb files will link to the assets/stylesheets folder with "stylesheet_link_tag"
 - views/layouts/application.html.erb file is where all views are served through in Rails application(all other views show up in the "yield" part in the body of this file)
+- views can have ruby code embedded in them with <% INSERT_CODE_HERE %>
+- 
 
 - channels folder allows for real time communication
 
