@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   get 'about', to: "pages#about"
+
+  # "resources" declares all common routes for a given controller
+  resources :articles, only: [:show]
 end
