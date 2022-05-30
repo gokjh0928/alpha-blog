@@ -30,6 +30,7 @@ Notes on building Rails application:
 - Resource routing is Rails default to declare all common routes for GET, POST, PATCH/PUT, DELETE
 - Resouce routing example: "resources :articles, only: [:show]" will create a GET route where it creates a Controller#Action of articles#show
 - Note: we still need to create an ArticlesController(articles_controller.rb), the corresponding actions, and the corresponding views(create a 'articles' folder and 'show.html' within it for the above example) for the created routes above
+- "rails routes --expanded" displays all routes for the rails application
 
 - can create new controller using command "rails generate controller CONTROLLER_NAME"
 - root CONTROLLER_NAME#ACTION_NAME will define the root path
@@ -37,7 +38,9 @@ Notes on building Rails application:
 - all additional controllers made will inherit/subclass from the default application_controller.erb
 - when action in controller doesn't explicitly render a view, it will find a view that matches the name of the controller and action(i.e. pages_controller with an empty home action would render views/pages/home)
 - to get specific parameters from the url for the action, you can use "params"(a hash data structure) to get the parameters(i.e. "@article = Article.find(params[:id])" will get the id 1 from /articles/1 and create an instance variable of @article which is available to the view template) 
+- we can use byebug to set a breakpoint within the code for debugging purposes
 - in the view template, use <%= @article.title %> to get the above article variable's title field(remember to include the '=' since that specifies to display as <%%> only evaluates)
+- the index route is used to display a listing of all articles in the table("resources :articles" will create a route the expects a CONTROLLER#ACTION of articles#index by default for the /articles path)
 
 - views are in views folder
 - app/assets stores static assets(images, stylesheets)

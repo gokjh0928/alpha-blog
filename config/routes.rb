@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   get 'about', to: "pages#about"
 
-  # "resources" declares all common routes for a given controller
-  resources :articles, only: [:show]
+  # "resources" declares all common routes for a given controller, but can specify chosen routes with "only"
+  resources :articles, only: [:show, :index]
 end
