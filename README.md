@@ -46,6 +46,8 @@ Notes on building Rails application:
 - "<%= form_with scope: :article, url: articles_path, local: true do |f| %>" will have the scope of the form take on the article model and path of /articles
 - once clicking submit on the #new action view template form, it will send the request to the #create action
 - in the create action, will need to whitelist fields from the param hash using "params.require(:article).permit(:title, :description)"
+- for the edit view for the edit action, we use "<%= form_with(model: @article, local: true) do |f| %>" since we're using an existing article to edit, and the form will be pre-filled with the instance variable @article's information
+- since we're doing the editing in the edit form within the edit route, Rails will automatically submit the form to the Update route(the PATCH route with URI "/articles/:id(.:format)" and Controller#Action of articles#update)
 
 - views are in views folder
 - app/assets stores static assets(images, stylesheets)
